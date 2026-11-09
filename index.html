@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SafeGuard ASF · PAIRS Lab</title>
+<meta name="description" content="SafeGuard ASF: an agentic humanoid robot system for autonomous industrial safety on the Unitree G1. Paper, code, demos and results.">
+<meta property="og:title" content="SafeGuard ASF: SR Agentic Humanoid Robot System for Autonomous Industrial Safety">
+<meta property="og:description" content="SafeGuard ASF · preprint · PAIRS Lab and Strike Robot">
+<meta property="og:image" content="videos/teaser.jpg">
+<meta name="theme-color" content="#063a7a">
+<link rel="icon" href="https://pairs-lab.github.io/images/brand/pairs-lab-icon-32.png" type="image/png">
+<link rel="stylesheet" href="assets/style.css">
+<script>document.documentElement.classList.add("js")</script>
+<script src="assets/data.js" defer></script>
+<script src="assets/app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <div class="wrap topbar-row">
+    <a class="lab" href="https://pairs-lab.github.io/"><img src="https://pairs-lab.github.io/images/brand/pairs-lab-horizontal.png" alt="PAIRS Lab" width="120" height="35"></a>
+    <nav class="toc" aria-label="Sections">
+      <a href="#abstract">Abstract</a><a href="#demos">Demos</a><a href="#system">System</a><a href="#scenarios">Scenarios</a><a href="#results">Results</a><a href="#experiments">Sim &amp; real</a><a href="#cite">Cite</a>
+    </nav>
+    <a class="gh" href="https://github.com/StrikeRobot/Strike-Robot-Simulation" aria-label="Code on GitHub"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero hero-paper">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="venue"><span>Preprint</span> 2026</p>
+      <h1>SafeGuard ASF</h1>
+      <p class="subtitle">SR Agentic humanoid robot system for autonomous industrial safety</p>
+      <p class="authors">
+        <a href="https://thanhnguyencanh.github.io/">Thanh Nguyen Canh</a>,
+        <a href="https://tranthang27.github.io/">Thang Tran Viet</a>,
+        Thanh Tuan Tran,
+        Ben Wei Lim
+      </p>
+      <p class="affils">Strike Robotics · PAIRS Lab</p>
+      <div class="actions">
+        <a class="btn" href="https://arxiv.org/abs/2603.25353">arXiv <span aria-hidden="true">↗</span></a>
+        <a class="btn" href="https://github.com/StrikeRobot/Strike-Robot-Simulation">Code <span aria-hidden="true">↗</span></a>
+        <a class="btn btn-solid" href="#demos">Demos <span aria-hidden="true">▶</span></a>
+      </div>
+    </div>
+    <figure class="teaser">
+      <video autoplay muted loop playsinline poster="videos/teaser.jpg" aria-label="A Unitree G1 humanoid walking through a factory floor and tracking a worker in a hard hat and safety vest"><source src="videos/teaser.mp4" type="video/mp4"></video>
+      <figcaption>A Unitree G1 recognizes a worker in protective gear and keeps tracking them across the factory floor.</figcaption>
+    </figure>
+  </div>
+  <div class="wrap"><dl class="counters" id="headline"></dl></div>
+</section>
+
+<section class="block" id="abstract">
+  <div class="wrap two">
+    <div>
+      <p class="kicker">01 · Abstract</p>
+      <h2>A humanoid that <em>patrols</em> the dark factory</h2>
+    </div>
+    <div class="prose">
+      <p>Unmanned "dark factories" run without people on site, so they need safety systems that can detect and respond to several kinds of hazard on their own. Fixed cameras and sensors leave blind spots and cannot go and check.</p>
+      <p><strong>SafeGuard ASF</strong> (Agentic Security Fleet) deploys humanoid robots for autonomous hazard detection. It combines <strong>RGB-D perception</strong>, a <strong>ReAct-based agent</strong> that reasons and calls tools through the <strong>ToolOrchestra</strong> framework, and <strong>learned locomotion policies</strong> on the Unitree G1. It handles three hazards: fire and smoke, abnormal pipeline temperature, and intruders in restricted zones.</p>
+      <p>Locomotion policies, including motion tracking and velocity control, are trained with PPO in Unitree RL Lab and validated sim-to-sim before deployment. The system is tested in Isaac Sim and on a real G1: autonomous patrol, human detection and tracking, obstacle avoidance and approaching a person.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block alt" id="demos">
+  <div class="wrap">
+    <p class="kicker">02 · Demos</p>
+    <h2>SR Agentic on the Unitree G1</h2>
+    <p class="lead">Real-robot and simulation runs of the SR Agentic stack, from the Strike Robot team. Each clip links to its original post.</p>
+    <div class="demos">
+      <figure class="demo"><video controls muted playsinline preload="none" poster="videos/obstacle-reroute.jpg"><source src="videos/obstacle-reroute.mp4" type="video/mp4"></video>
+        <figcaption><strong>Notice, reason, decide, act</strong>An obstacle appears mid-mission; the robot notices it, reasons about it and reroutes, with its agent log on screen. <a href="https://x.com/StrikeRobot_ai/status/2050259071169892529">May 2026 ↗</a></figcaption></figure>
+      <figure class="demo"><video controls muted playsinline preload="none" poster="videos/worker-tracking.jpg"><source src="videos/worker-tracking.mp4" type="video/mp4"></video>
+        <figcaption><strong>Tracking a worker</strong>The robot recognizes a worker in protective gear and keeps tracking them across the floor. <a href="https://x.com/StrikeRobot_ai/status/2045716356038042021">Apr 2026 ↗</a></figcaption></figure>
+      <figure class="demo"><video controls muted playsinline preload="none" poster="videos/object-search.jpg"><source src="videos/object-search.mp4" type="video/mp4"></video>
+        <figcaption><strong>Goal-driven object search</strong>Given a task such as "find the white bottle on the table", the robot searches and localizes the object in 3D. <a href="https://x.com/StrikeRobot_ai/status/2043700827890815001">Apr 2026 ↗</a></figcaption></figure>
+      <figure class="demo"><video controls muted playsinline preload="none" poster="videos/robot-view.jpg"><source src="videos/robot-view.mp4" type="video/mp4"></video>
+        <figcaption><strong>What the robot sees</strong>The onboard view: face detection of the target person, real-time obstacle detection and 3D positions of objects. <a href="https://x.com/StrikeRobot_ai/status/2038167582029598851">Mar 2026 ↗</a></figcaption></figure>
+      <figure class="demo"><video controls muted playsinline preload="none" poster="videos/pick-place.jpg"><source src="videos/pick-place.mp4" type="video/mp4"></video>
+        <figcaption><strong>One line of text, in simulation</strong>"Pick and place the cylinder into the basket": a G1 in a factory simulation carries out a plain-language command. <a href="https://x.com/StrikeRobot_ai/status/2037186778306945475">Mar 2026 ↗</a></figcaption></figure>
+      <figure class="demo"><video controls muted playsinline preload="none" poster="videos/warmup.jpg"><source src="videos/warmup.mp4" type="video/mp4"></video>
+        <figcaption><strong>Learned whole-body motion</strong>A fast martial-arts warm-up, showing the agility of the trained motion policies. <a href="https://x.com/StrikeRobot_ai/status/2044006092481671380">Apr 2026 ↗</a></figcaption></figure>
+      <figure class="demo"><video controls muted playsinline preload="none" poster="videos/sr-agentic.jpg"><source src="videos/sr-agentic.mp4" type="video/mp4"></video>
+        <figcaption><strong>SR Agentic overview</strong>The plug-and-play agentic framework, starting with the Unitree G1, for autonomous anomaly detection. <a href="https://x.com/StrikeRobot_ai/status/2043524071925612560">Apr 2026 ↗</a></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="system">
+  <div class="wrap">
+    <p class="kicker">03 · System</p>
+    <h2>Six layers from sensors to actions</h2>
+    <div class="two-figs">
+      <figure class="figure"><img src="images/architecture.jpg" alt="Six-layer architecture: RGB-D, thermal and IMU feed a perception layer (fire/smoke, thermal, depth, person), then understanding (severity, trend, fusion), memory (facility map, baselines, personnel), decision with ReAct reasoning and 23 tools, planning (D* Lite, MPPI) and action (locomotion, communication, actuation) on the Unitree G1." width="1068" height="1084" loading="lazy"><figcaption>Fig. 1: the six-layer architecture of SafeGuard ASF.</figcaption></figure>
+      <div>
+        <ol class="steps steps-tight">
+          <li><b>L1</b><h3>Perception</h3><p>YOLOv8 fire and smoke detection, thermal monitoring, depth localization and person detection with Re-ID.</p></li>
+          <li><b>L2</b><h3>Understanding</h3><p>Fuses detections to estimate hazard severity and predict how it evolves.</p></li>
+          <li><b>L3</b><h3>Memory</h3><p>Facility map, thermal baselines per inspection point, and a database of authorized personnel.</p></li>
+          <li><b>L4</b><h3>Decision: ToolOrchestra</h3><p>A ReAct agent loops thought, tool call and observation over perception, reasoning, knowledge and actuation tools.</p></li>
+          <li><b>L5</b><h3>Planning</h3><p>D* Lite global waypoints and MPPI local trajectory optimization.</p></li>
+          <li><b>L6</b><h3>Action</h3><p>Velocity-command locomotion policies, alerts to the control center and spoken warnings.</p></li>
+        </ol>
+      </div>
+    </div>
+    <div class="table-scroll"><table class="stage-table" id="tool-table"></table></div>
+    <figure class="figure figure-mid"><img src="images/training.jpg" alt="Locomotion training pipeline: Isaac Sim with 4096 environments and domain randomization, PPO with RSL-RL, policy validated in MuJoCo sim-to-sim and deployed sim-to-real on the Unitree G1." width="868" height="488" loading="lazy"><figcaption>Fig. 2: locomotion policies are trained in Isaac Sim with 4096 parallel environments and domain randomization, checked in MuJoCo, then deployed on the G1.</figcaption></figure>
+  </div>
+</section>
+
+<section class="block alt" id="scenarios">
+  <div class="wrap">
+    <p class="kicker">04 · Hazard scenarios</p>
+    <h2>Fire, overheating pipes and intruders</h2>
+    <div class="cards3">
+      <div class="card"><span class="card-num">1</span><h3>Fire and smoke</h3><p>Detect with a fine-tuned YOLOv8-m, estimate severity, localize in 3D, alert and trigger suppression, then monitor until it is out.</p></div>
+      <div class="card"><span class="card-num">2</span><h3>Abnormal pipeline temperature</h3><p>Compare thermal readings with the stored baseline, follow the temperature trend, and trace the hot spot to its root cause, such as a stuck valve.</p></div>
+      <div class="card"><span class="card-num">3</span><h3>Intruder in a restricted zone</h3><p>Detect people with YOLOv8-n and check them against authorized personnel by OSNet re-identification before raising an alert.</p></div>
+    </div>
+    <figure class="figure figure-mid"><img src="images/fire.jpg" alt="Fire response timeline: detection at T=0 (YOLOv8, fire 92%), localization at T+3 s (depth 6.2 m), alert at T+18 s with power off, monitoring until the fire reads 0% at T+48 s." width="962" height="472" loading="lazy"><figcaption>Fig. 3: a fire response from detection to confirmed extinguishment.</figcaption></figure>
+  </div>
+</section>
+
+<section class="block" id="results">
+  <div class="wrap">
+    <p class="kicker">05 · Results</p>
+    <h2>Detection, response time and compute</h2>
+    <div class="metric-row" id="det-metrics" role="group" aria-label="Detection metric"></div>
+    <figure class="chart" id="det-chart"><figcaption><strong id="det-title"></strong><span id="det-sub"></span></figcaption><div class="bars"></div></figure>
+    <figure class="chart"><figcaption><strong>End-to-end response time by phase</strong><span>seconds · Table III · hover a row for the breakdown</span></figcaption><div id="resp-chart"></div><div class="legend" id="resp-legend"></div></figure>
+    <p class="note" id="resp-note"></p>
+    <div class="two-tables">
+      <div class="table-scroll"><table class="stage-table" id="succ-table"></table></div>
+      <div class="table-scroll"><table class="stage-table" id="base-table"></table></div>
+    </div>
+    <figure class="chart" id="comp-chart"><figcaption><strong>Latency per module on NVIDIA Jetson Orin</strong><span>ms · lower is faster · Table VI · the ReAct reasoning runs on the CPU at about 0.85 s per decision, asynchronously</span></figcaption><div class="bars"></div></figure>
+    <p class="note">Limitations reported in the paper: few real-world scenarios so far, a single robot without fleet coordination, no physical manipulation (valves and suppression are actuated remotely), and edge-compute limits. In simulation, most failures came from missed detections in dispersed smoke.</p>
+  </div>
+</section>
+
+<section class="block alt" id="experiments">
+  <div class="wrap">
+    <p class="kicker">06 · Simulation and real world</p>
+    <h2>From Isaac Sim to a real G1</h2>
+    <figure class="figure"><img src="images/sim-patrol.jpg" alt="Isaac Sim factory: the humanoid on an automatic patrol route." width="1800" height="251" loading="lazy"><figcaption>Fig. 7b: automatic patrol in an Isaac Sim factory.</figcaption></figure>
+    <figure class="figure"><img src="images/sim-worker.jpg" alt="Isaac Sim factory: the humanoid identifying a worker." width="1800" height="246" loading="lazy"><figcaption>Fig. 7c: security and worker identification in simulation.</figcaption></figure>
+    <figure class="figure"><img src="images/real-perception.jpg" alt="Real indoor environment, the robot's visual perception with bounding boxes and 3D positions, and a bird's-eye view map." width="1408" height="360" loading="lazy"><figcaption>Fig. 9a–c: the real environment, visual perception with 3D localization, and the bird's-eye view.</figcaption></figure>
+    <figure class="figure"><img src="images/real-handshake.jpg" alt="The real G1 avoiding an obstacle, reaching a person and shaking hands." width="1800" height="249" loading="lazy"><figcaption>Fig. 9d: the real G1 avoids an obstacle, reaches the person and shakes hands.</figcaption></figure>
+  </div>
+</section>
+
+<section class="block" id="cite">
+  <div class="wrap">
+    <p class="kicker">07 · Cite</p>
+    <h2>Citation</h2>
+    <div class="bib"><pre id="bibtex">@misc{canh2026safeguard,
+  title         = {SafeGuard ASF: SR Agentic Humanoid Robot System for Autonomous Industrial Safety},
+  author        = {Canh, Thanh Nguyen and Tran Viet, Thang and Tran, Thanh Tuan and Lim, Ben Wei},
+  eprint        = {2603.25353},
+  archivePrefix = {arXiv},
+  year          = {2026}
+}</pre><button type="button" class="copy" id="copy-bib">Copy</button></div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-row">
+    <p>© 2026 the authors · <a href="https://pairs-lab.github.io/">PAIRS Lab</a> · Results from arXiv 2603.25353 · Demo videos by <a href="https://x.com/StrikeRobot_ai">Strike Robot</a>.</p>
+    <a href="#main">Back to top ↑</a>
+  </div>
+</footer>
+</body>
+</html>
